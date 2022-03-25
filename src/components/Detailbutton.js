@@ -8,15 +8,15 @@ const Detailbutton = () => {
     return (
         <>
             <Container>
-                <Stack direction="row" mt={20} mb={19} justifyContent="space-around" flexWrap='wrap'>
+                <Stack direction="row" mt={20} mb={18} justifyContent="space-around" flexWrap='wrap'>
 
-                    <Box sx={{ height: '193px', width: '300px', border: '1px solid black', background: '#FFFFFF', p: 1, m: 1, }}>
+                    <Box sx={{ height: '200px', width: '250px', border: '1px solid #D82148', background: '#FFFFFF', p: 1, m: 1, }}>
                         <Typography variant='h6' align='center'> Detail</Typography>
                     </Box>
-                    <Box sx={{ height: '193px', mt: "5", width: '300px', border: '1px solid black', background: '#FFFFFF', p: 1, m: 1, }}>
-                        <Typography variant='subtitle1' align='center'> Organized by</Typography>
+                    <Box sx={{ height: '200px', mt: "5", width: '250px', border: '1px solid #D82148', background: '#FFFFFF', p: 1, m: 1, }}>
+                        <Typography variant='h6' align='center'> Organized by</Typography>
                         <Stack direction="row" spacing={2}>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 100, height: 100, ml: "33%" }} />
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 100, height: 100, ml: "30%" }} />
                         </Stack>
                         <Typography variant='subtitle1' align='center' mt={3}> Name</Typography>
 

@@ -25,17 +25,13 @@ const Dashboard = () => {
         </Button>
         {/* </Link> */}
 
-      <Link to="/Q&A">
-        <Button style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
+        <Button href="/Q&A" style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
         Q&A
         </Button>
-        </Link>
 
-      <Link to="/Compaigns">
-        <Button style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
+        <Button href="/Compaigns" style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
         Bounty Campaign
         </Button>
-        </Link>
       {/* <Link to="hireexperts"> */}
         <Button style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
         Hire Experts  </Button>
