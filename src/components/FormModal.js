@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Paper, TextField, Typography, Button} from '@mui/material';
+import { Grid, Paper, Typography, Button} from '@mui/material';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 import "./Style.scss";
 const FormModal = () => {
     const paperStyle={height:'64vh', width:500, marginTop:"127px"}
@@ -38,11 +39,16 @@ let tagInput;
 
       <Grid align="center">
         <Paper elevation={10} style={paperStyle}>
+
 <Typography variant='h5' sx={{ pt: 6, fontWeight:'bold'}}>
   Ask Question 
 </Typography>
- <TextField style = {{ width:'70%', marginTop:'60px'}} id="standard-basic" label="Question" variant="standard" placeholder='Enter you question' required />
  
+<TextareaAutosize
+      aria-label="empty textarea"
+      placeholder="Enter a question"
+      style={{ width: 400, height: 20, marginTop:'50px' }}
+    />
  
     <div className="input-tag">
       <ul className="input-tag__tags">
