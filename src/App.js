@@ -13,6 +13,7 @@ import {Routes,Route,}from "react-router-dom";
 import DashBoard from './Dashboard'
 import DashboardNav from './components/DashboardNav';
 import Detailbutton from './components/Detailbutton';
+import QandAform from './components/QandAform';
 
 const App = () => {
   return (
@@ -36,8 +37,7 @@ const App = () => {
            {/* <Route path="/bounty" element={<DetailBounties />} /> */}
         </Routes>
         </Container>
-        <Footer />  
-       
+        <Footer /> 
 
  </>
     )

@@ -1,0 +1,66 @@
+.body{
+    overflow-x: hidden;
+   
+}
+@media (max-width:600px){
+    .first{
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 30%;
+    }
+    .second{
+        font-weight: 530;
+        font-size: 19px;
+    }
+    .bug{
+        margin-top: 10%;
+    }
+   
+    .view{
+      flex-direction: column;
+      margin-top: 13%;
+      
+    }
+    .Title{
+        font-size:15px;
+        font-weight: bold;
+        margin-top: 5px;
+          
+    }
+    .main{
+        /* display: inline-flex; */
+      /* font-size: medium; */
+        padding: 5px;
+    }
+    .span{
+        display: none;
+    }
+    .border{
+     width: 350px;
+     margin-top: 15px;
+    }
+
+}
+@media (max-width:900px){
+    .first{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .campaign{
+        margin-top: 5%;
+    }
+    .title{
+        font-size: 16px;
+        font-weight: bold;   
+    }
+    /* .border{
+        width: 450px;
+        margin-top: 15px;
+       } */
+       .span{
+        display: none;
+    }
+    
+   
+   
+}

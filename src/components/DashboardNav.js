@@ -39,7 +39,8 @@ Hire Experts  </Button>
 </Box>
    
   </Toolbar>
-</AppBar>    )
+</AppBar>  
+  )
 }
 
 export default DashboardNav

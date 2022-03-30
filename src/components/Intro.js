@@ -1,15 +1,16 @@
 import React from 'react'
 import { Typography, Grid } from '@mui/material'
+import './Style.css'
 const Intro = () => {
   return (
 <>
 <Grid container display="column" alignItems="center" justifyContent='center' >
 <Grid item>
 
-<Typography fontSize={40} fontWeight='bold'  align="center" mt={23}> 
+<Typography className='first' fontSize={40} fontWeight='bold'  align="center" mt={23}> 
 Community sourced <span style={{color:'#D82148'}}>Bug reporting</span> and <span style = {{color:'#D82148'}}>Q&A</span> Platform
      </Typography>
-     <Typography style={{margin:'91px', marginLeft:'14px', marginTop: '13px',
+     <Typography className='second' style={{margin:'91px', marginLeft:'14px', marginTop: '13px',
     marginRight: '-19px',
     marginBottom: '21px',
     }}>
