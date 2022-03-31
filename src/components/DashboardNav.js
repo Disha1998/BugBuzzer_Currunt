@@ -17,7 +17,7 @@ const DashboardNav = () => {
   </Typography>
 
 
-<Box m = {1} p ={2}>
+<Box className="Box" m = {1} p ={1}>
 {/* <Link to = "/reportbug"> */}
 <Button style={{color:'black', fontWeight:'bold' ,textTransform:'capitalize'}} size='medium' variant='text'>
 Report Bug

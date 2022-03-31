@@ -3,6 +3,10 @@
    
 }
 @media (max-width:600px){
+    .Box{
+        display: none;
+       
+    }
     .first{
         font-size: 28px;
         font-weight: bold;
@@ -17,8 +21,10 @@
     }
    
     .view{
-      flex-direction: column;
-      margin-top: 13%;
+      flex-direction: row;
+      margin-top: 12%;
+      margin-right: 16%;
+      align: center;
       
     }
     .Title{

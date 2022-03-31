@@ -11,6 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Hidden } from '@mui/material';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { Divider } from '@mui/material'
+import { ListItem } from '@mui/material'
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false)
@@ -26,11 +28,14 @@ const Dashboard = () => {
 
 
             <Box m={1} p={2}>
-              <Link to="/Q&A">
-                <Button style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
+            <Button style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
+                  Report bug
+                </Button>
+              
+                <Button href="/Q&A" style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
                   Q&A
                 </Button>
-              </Link>
+              
 
               <Button href='/Compaigns' style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
                 Bounty Campaign
@@ -49,18 +54,23 @@ const Dashboard = () => {
 
 
         </Toolbar>
-        <SwipeableDrawer anchor='top' open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
-          <Box p={3} sx={{display:"inline-list"}}>
-            <Link to="/Q&A">
-              <Button style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
+        <SwipeableDrawer anchor='left' open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
+          <Box textAlign="center" p={4} sx={{width:"180px", height:"150px", color:"#D82148"}}>
+          <ListItem Button style={{fontSize:"18px", color: 'black', fontWeight: 'bold', textTransform: 'capitalize', borderBottom:"1.5px solid #D82148",marginBottom:"5px" }} size='medium' variant='text'>
+               Report Bug
+              </ListItem>
+           
+              <ListItem Button href="/Q&A" style={{fontSize:"18px", color: 'black', fontWeight: 'bold', textTransform: 'capitalize', borderBottom:"1.5px solid #D82148",marginBottom:"5px" }} size='medium' variant='text'>
                 Q&A
-              </Button>
-            </Link>
-            <Button style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
+              </ListItem>
+           
+            <ListItem Button style={{fontSize:"18px", color: 'black', fontWeight: 'bold', textTransform: 'capitalize',borderBottom:"1.5px solid #D82148", marginBottom:"5px" }} size='medium' variant='text'>
               Bounty Campaign
-            </Button>
-            <Button style={{ color: 'black', fontWeight: 'bold', textTransform: 'capitalize' }} size='medium' variant='text'>
-              Hire Experts  </Button>
+            </ListItem>
+            
+            <ListItem Button style={{fontSize:"18px", color: 'black', fontWeight: 'bold', textTransform: 'capitalize',borderBottom:"1.5px solid #D82148", marginBottom:"5px"  }} size='medium' variant='text'>
+              Hire Experts 
+               </ListItem>
           </Box>
         </SwipeableDrawer>
 
