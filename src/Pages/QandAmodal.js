@@ -1,6 +1,18 @@
-import React from "react";
-import { Grid, Paper, TextField, Typography, Button } from "@mui/material";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
+import React, { useState, useEffect } from "react";
+import {
+  Stack,
+  TextField,
+  FormControl,
+  Box,
+  Container,
+  Typography,
+  TextareaAutosize,
+} from "@mui/material";
+import DialogActions from "@mui/material/DialogActions";
+import Grid from "@material-ui/core/Grid";
+import Button from "@mui/material/Button";
+import { useFormik, Form, FormikProvider } from "formik";
+import { useMoralis, useMoralisCloudFunction } from "react-moralis";
 import "./Style.css";
 const QandAmodal = () => {
   const paperStyle = { height: "67vh", width: 500, marginTop: "127px" };
@@ -30,84 +42,107 @@ const QandAmodal = () => {
 
   return (
     <>
-      <Grid align="center">
-        <Paper elevation={10} style={paperStyle}>
-          <Typography
-            variant="h5"
-            sx={{
-              pt: 6,
-              fontWeight: "bolder",
-              color: " rgb(216, 33, 72)",
-              TextDecoder: "none",
-              border: "none",
-            }}
-          >
-            Ask A Question
-          </Typography>
-
-          <TextareaAutosize
-            required
-            aria-label="minimum height"
-            fullwidth
-            // style={{ width: "auto", marginTop: "60px" }}
-            minRows={3}
-            placeholder="Ask your Question here!"
-            style={{
-              width: 450,
-              marginTop: "60px",
-              // borderColor: " rgb(216, 33, 72)",
-            }}
-          />
-
-          <div
-            className="input-tag"
-            style={{
-              width: "26vw",
-              //  borderColor: " rgb(216, 33, 72)"
-            }}
-          >
-            <ul className="input-tag__tags">
-              {tags.map((tag, i) => (
-                <li key={tag}>
-                  {tag}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      removeTag(i);
+      <Container>
+        <Typography
+          variant="h5"
+          sx={{
+            pt: 16,
+            fontWeight: "bolder",
+            color: " rgb(216, 33, 72)",
+            TextDecoder: "none",
+            border: "none",
+            textAlign: "center",
+          }}
+        >
+          Ask A Question
+        </Typography>
+        <form
+          // onSubmit={formik.handleSubmit}
+          style={{
+            justifyContent: "center",
+            marginLeft: "12vw",
+            marginRight: "12vw",
+            // marginTop: "110px",
+          }}
+        >
+          <Stack spacing={3}>
+            <TextareaAutosize
+              // onChange={(e) => SetbugDesc(e.target.value)}
+              fullWidth
+              required
+              name="description"
+              aria-label="minimum height"
+              minRows={5}
+              placeholder="Ask your Question here !"
+              style={{
+                width: "auto",
+                borderColor: "rgb(196 196 196)",
+                borderRadius: "5px",
+                marginTop: "60px",
+              }}
+              // {...formik.getFieldProps("description")}
+            ></TextareaAutosize>
+            <div
+              className="input-tag"
+              style={{
+                width: "auto",
+              }}
+            >
+              <ul className="input-tag__tags">
+                {tags.map((tag, i) => (
+                  <li key={tag}>
+                    {tag}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        removeTag(i);
+                      }}
+                    >
+                      {/* {console.log(tags,'tagg')} */}+
+                    </button>
+                  </li>
+                ))}
+                <li className="input-tag__tags__input">
+                  <input
+                    // required
+                    // onChange={(e)=>bugTagschange(e)}
+                    // onChange={(e) => setTags(e.target.value)}
+                    name="tags"
+                    type="text"
+                    onKeyDown={inputKeyDown}
+                    ref={(c) => {
+                      tagInput = c;
                     }}
-                  >
-                    +
-                  </button>
+                    // {...formik.getFieldProps("tags")}
+                  />
+                  ;{/* })} */}
                 </li>
-              ))}
-              <li className="input-tag__tags__input">
-                <input
-                  type="text"
-                  onKeyDown={inputKeyDown}
-                  ref={(c) => {
-                    tagInput = c;
-                  }}
-                />
-              </li>
-            </ul>
-          </div>
+              </ul>
+            </div>
 
-          <Button
-            variant="contained"
-            size="small"
-            style={{
-              backgroundColor: "#D82148",
-              textTransform: "capitalize",
-              border: "2px solid #D82148",
-              marginRight: "18px",
-              fontWeight: "bold",
-            }}
-            sx={{ borderRadius: 2, mt: 5 }}
-          >
-            Submit
-          </Button>
-        </Paper>
-      </Grid>
+            {/* ----------------------------------------------- */}
+          </Stack>
+          <DialogActions>
+            <Grid container justifyContent="center">
+              <Button
+                variant="contained"
+                type="submit"
+                size="midium"
+                style={{
+                  backgroundColor: "#D82148",
+                  textTransform: "capitalize",
+                  border: "2px solid #D82148",
+                  marginRight: "18px",
+                  fontWeight: "bold",
+                }}
+                sx={{ borderRadius: 2, mt: 5 }}
+              >
+                Submit
+              </Button>
+            </Grid>
+          </DialogActions>
+        </form>
+      </Container>
     </>
   );
 };

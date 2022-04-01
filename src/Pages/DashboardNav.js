@@ -6,7 +6,7 @@ import QandAdetail from "./Q&Adetail";
 import BugLogo from "./BugBuzzer-Logo-Web.png";
 import { useMoralis } from "react-moralis";
 import { useNavigate } from "react-router-dom";
-import User from "./user";
+import CurruntUser from "./CurruntUser";
 
 const DashboardNav = () => {
   const { Moralis, user, logout, isAuthenticated } = useMoralis();
@@ -90,7 +90,12 @@ const DashboardNav = () => {
             }}
             // sx={{ borderRadius: 2 }}
           >
-            <User />
+            <Link
+              to="/dashboard/userProfile"
+              style={{ textDecoration: "none" }}
+            >
+              <CurruntUser />
+            </Link>
             {/* <Avatar />
             {"  "}
             {user?.attributes.username} */}

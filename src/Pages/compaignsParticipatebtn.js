@@ -13,10 +13,11 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@mui/material/Button";
 import { useFormik, Form, FormikProvider } from "formik";
 import { useMoralis, useMoralisCloudFunction } from "react-moralis";
+import { useLocation } from "react-router-dom";
 
 export default function Participatebtn(props) {
   // const { data, isLoading } = useMoralisCloudFunction("getAllUser");
-
+  const location = useLocation();
   const { Moralis, user } = useMoralis();
 
   const [tags, setTags] = React.useState(["Tags"]);
@@ -30,7 +31,12 @@ export default function Participatebtn(props) {
   // useEffect(() => {
   //   fetch();
   // }, ['']);
-
+  
+  useEffect(() => {
+    console.log(location.pathname, 'path_location-->'); // result: '/secondpage'
+    
+    // console.log(location.state,"state"); // result: 'some_value'
+ }, [location]);
   const handleChange = (event, val) => {
     setValue(val);
     console.log(val);
@@ -97,7 +103,7 @@ export default function Participatebtn(props) {
   const { fetch, data } = useMoralisCloudFunction("getParticipate", {
     autoFetch: true,
   });
-  console.log(data, "cloud--->");
+  // console.log(data, "cloud--->");
   // cloud function ---------------------------------------------------->>>>>>>>>
 
   return (
@@ -127,7 +133,6 @@ export default function Participatebtn(props) {
         <Stack spacing={3}>
           <TextField
             onChange={(e) => SetbugTitle(e.target.value)}
-            // title={title}
             required
             fullWidth
             label="Bug Title"

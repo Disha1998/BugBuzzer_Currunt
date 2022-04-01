@@ -7,23 +7,28 @@ import Lending from "./Pages/Lending";
 import DetailQandA from "./Pages/Q&Adetail";
 import QandAmodal from "./Pages/QandAmodal";
 import BugCompaigns from "./Pages/BountyCompaigns";
-import Detailbutton from './Pages/compaignsDetailbtn'
+import Detailbutton from "./Pages/compaignsDetailbtn";
 import Participatebtn from "./Pages/compaignsParticipatebtn";
-import Leaderboard from './Pages/Leaderboard';
-import Questiondetail from "./Pages/Questiondetail"
-import User from "./Pages/user"
+import Leaderboard from "./Pages/Leaderboard";
+import Questiondetail from "./Pages/Questiondetail";
+import User from "./Pages/CurruntUser";
 import UserProfile from "./Pages/userProfile";
 export default function Router() {
   return useRoutes([
     // <DashboardNav />,
+    {
+      path: "/",
+      element: <Lending />,
+    },
 
     {
       path: "/dashboard",
       element: <Dashboard />,
     },
     {
-      path:"/dashboard/userProfile" , element:<UserProfile />
-      },
+      path: "/dashboard/userProfile",
+      element: <UserProfile />,
+    },
     { path: "/dashboard/QueAns", element: <DetailQandA /> },
 
     {
@@ -36,22 +41,23 @@ export default function Router() {
       element: <BugCompaigns />,
     },
     // { path: "/", element: <Navigate to="/dashboard/app" /> },
-{
-  path : "/dashboard/bugcampaigns/detailbtn", element:<Detailbutton />
-},
-{
-path:"/dashboard/bugcampaigns/praticipatebtn", element:<Participatebtn />
-},
-{
-path:"/dashboard/leaderboard", element:<Leaderboard />
-},
-{
-path:"/dashboard/QueAns/questiondetail" , element:<Questiondetail />
-},
     {
-      path: "/",
-      element: <Lending />,
+      path: "/dashboard/bugcampaigns/detailbtn",
+      element: <Detailbutton />,
     },
+    {
+      path: "/dashboard/bugcampaigns/praticipatebtn/:id",
+      element: <Participatebtn />,
+    },
+    {
+      path: "/dashboard/leaderboard",
+      element: <Leaderboard />,
+    },
+    {
+      path: "/dashboard/QueAns/questiondetail",
+      element: <Questiondetail />,
+    },
+
     // <Footer />,
   ]);
 }
