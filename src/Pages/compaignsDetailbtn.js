@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -10,7 +10,26 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import HomeIcon from "@mui/icons-material/Home";
+import { useParams } from "react-router-dom";
+import { useMoralis, useMoralisCloudFunction } from "react-moralis";
+
 const Detailbutton = (props) => {
+  const { Moralis, user } = useMoralis();
+
+  const param = useParams();
+  // console.log(param, "detsil");
+  useEffect(() => {
+    getData();
+  }, []);
+
+  async function getData() {
+    const CompaignDetail = Moralis.Object.extend("CompaignsParticipate");
+    const query = new Moralis.Query(CompaignDetail);
+    query.equalTo("compaign_id", param.id);
+    const result = await query.find();
+    console.log(result);
+  }
+
   return (
     <>
       <div
@@ -151,49 +170,43 @@ const Detailbutton = (props) => {
       <div style={{ marginTop: "10vh" }}>
         <Container>
           {/* {props.map((compaign) => ( */}
-            <Grid align="center">
+          <Grid align="center">
+            <Box
+              sx={{
+                // height: "50%",
+                // width: "50%",
+                // marginTop: "3vh",
+                border: "2px solid black",
+              }}
+            >
               <Box
                 sx={{
-                  // height: "50%",
-                  // width: "50%",
-                  // marginTop: "3vh",
-                  border: "2px solid black",
+                  height: "94px",
+                  width: "97px",
+                  border: "2px solid #ffffff",
+                  borderRadius: "50%",
+                  background: "#C4C4C4",
+                  marginRight: "500px",
+                  mt: 2,
+                  p: 2,
                 }}
               >
-                <Box
-                  sx={{
-                    height: "94px",
-                    width: "97px",
-                    border: "2px solid #ffffff",
-                    borderRadius: "50%",
-                    background: "#C4C4C4",
-                    marginRight: "500px",
-                    mt: 2,
-                    p: 2,
-                  }}
-                >
-                  {" "}
-                  <span style={{ marginLeft: "150px" }}>Disha</span>
-                </Box>
-                <Typography color="black" mt={2}>
-                  <span style={{ fontWeight: "bold" }}>
-                    {" "}
-                    Facing error in writing smart contracts and integrating in
-                    Hardhat{" "}
-                  </span>{" "}
-                  <br />
-                </Typography>
-                <Typography mt={2} mb={2}>
-                  You are trying to run Hardhat outside of a Hardhat project.
-                  You can learn how to use Hardhat by reading the Getting
-                  Started guide. Hardhat doesn't support your Node.js version.
-                  Please upgrade your version of Node.js and try again. You are
-                  tying to perform an unsupported operation. Unless you are
-                  creating a task or plugin, this is probably a bug. Please
-                  report it (opens new window)to help us improve Hardhat.
-                </Typography>
+                {" "}
+                <span style={{ marginLeft: "150px" }}>
+                  {user?.attributes?.username}
+                </span>
               </Box>
-            </Grid>
+              <Typography color="black" mt={2}>
+                <span style={{ fontWeight: "bold" }}> Title </span> <br />
+              </Typography>
+              <Typography color="black" mt={2}>
+                <span style={{ }}> Tags </span> <br />
+              </Typography>
+              <Typography mt={2} mb={2}>
+                Description
+              </Typography>
+            </Box>
+          </Grid>
           {/* ))} */}
         </Container>
       </div>

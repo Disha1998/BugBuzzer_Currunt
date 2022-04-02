@@ -13,12 +13,15 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@mui/material/Button";
 import { useFormik, Form, FormikProvider } from "formik";
 import { useMoralis, useMoralisCloudFunction } from "react-moralis";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 export default function Participatebtn(props) {
   // const { data, isLoading } = useMoralisCloudFunction("getAllUser");
   const location = useLocation();
   const { Moralis, user } = useMoralis();
+
+  const param = useParams();
+  // console.log(param,'param-->');
 
   const [tags, setTags] = React.useState(["Tags"]);
   const [bugTitle, SetbugTitle] = useState("");
@@ -31,12 +34,12 @@ export default function Participatebtn(props) {
   // useEffect(() => {
   //   fetch();
   // }, ['']);
-  
+
   useEffect(() => {
-    console.log(location.pathname, 'path_location-->'); // result: '/secondpage'
-    
+    console.log(location, "path_location-->"); // result: '/secondpage'
+
     // console.log(location.state,"state"); // result: 'some_value'
- }, [location]);
+  }, [location]);
   const handleChange = (event, val) => {
     setValue(val);
     console.log(val);
@@ -66,6 +69,7 @@ export default function Participatebtn(props) {
         CompaignsParticipate.set("title", formData.title);
         CompaignsParticipate.set("tag", formData.tags);
         CompaignsParticipate.set("description", formData.description);
+        CompaignsParticipate.set("compaign_id", param.id);
 
         await CompaignsParticipate.save();
         setLoading(false);
@@ -100,9 +104,9 @@ export default function Participatebtn(props) {
   };
 
   // cloud function ---------------------------------------------------->>>>>>>>
-  const { fetch, data } = useMoralisCloudFunction("getParticipate", {
-    autoFetch: true,
-  });
+  // const { fetch, data } = useMoralisCloudFunction("getParticipate", {
+  //   autoFetch: true,
+  // });
   // console.log(data, "cloud--->");
   // cloud function ---------------------------------------------------->>>>>>>>>
 

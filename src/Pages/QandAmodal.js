@@ -11,10 +11,16 @@ import {
 import DialogActions from "@mui/material/DialogActions";
 import Grid from "@material-ui/core/Grid";
 import Button from "@mui/material/Button";
+
 import { useFormik, Form, FormikProvider } from "formik";
 import { useMoralis, useMoralisCloudFunction } from "react-moralis";
 import "./Style.css";
-const QandAmodal = () => {
+export default function QandAmodal() {
+  const { Moralis, user } = useMoralis();
+
+  const [loading, setLoading] = useState(false);
+
+  const [askQue, setAskQue] = useState();
   const paperStyle = { height: "67vh", width: 500, marginTop: "127px" };
   let tagInput;
   const [tags, setTags] = React.useState(["Tags", "Input"]);
@@ -23,7 +29,6 @@ const QandAmodal = () => {
     const newTags = [...tags];
     newTags.splice(i, 1);
 
-    // Call the defined function setTags which will replace tags with the new value.
     setTags(newTags);
   };
 
@@ -39,6 +44,38 @@ const QandAmodal = () => {
       removeTag(tags.length - 1);
     }
   };
+  // ----------------------------formik----------------------------------------------
+  const AskaQuestion = Moralis.Object.extend("AskQuestionModal");
+  const askAque = new AskaQuestion();
+  const formik = useFormik({
+    initialValues: {
+      question: "",
+      tags: "",
+    },
+
+    onSubmit: async (values, { resetForm }) => {
+      const formData = {
+        question: values.question,
+        tags: tags,
+      };
+      console.log(formData, "formData");
+
+      try {
+        setLoading(true);
+        askAque.set("from", user.attributes.username);
+        askAque.set("title", formData.question);
+        askAque.set("tag", formData.tags);
+
+        await askAque.save();
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        // console.log(error);
+        alert(error);
+      }
+      resetForm();
+    },
+  });
 
   return (
     <>
@@ -57,7 +94,7 @@ const QandAmodal = () => {
           Ask A Question
         </Typography>
         <form
-          // onSubmit={formik.handleSubmit}
+          onSubmit={formik.handleSubmit}
           style={{
             justifyContent: "center",
             marginLeft: "12vw",
@@ -80,7 +117,7 @@ const QandAmodal = () => {
                 borderRadius: "5px",
                 marginTop: "60px",
               }}
-              // {...formik.getFieldProps("description")}
+              {...formik.getFieldProps("question")}
             ></TextareaAutosize>
             <div
               className="input-tag"
@@ -145,9 +182,9 @@ const QandAmodal = () => {
       </Container>
     </>
   );
-};
+}
 
-export default QandAmodal;
+// export default QandAmodal;
 
 // import React from "react";
 

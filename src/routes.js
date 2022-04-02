@@ -42,11 +42,11 @@ export default function Router() {
     },
     // { path: "/", element: <Navigate to="/dashboard/app" /> },
     {
-      path: "/dashboard/bugcampaigns/detailbtn",
+      path: "/dashboard/bugcampaigns/detail/:id",
       element: <Detailbutton />,
     },
     {
-      path: "/dashboard/bugcampaigns/praticipatebtn/:id",
+      path: "/dashboard/bugcampaigns/praticipate/:id",
       element: <Participatebtn />,
     },
     {

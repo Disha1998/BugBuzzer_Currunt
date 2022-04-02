@@ -63,7 +63,7 @@ const Compaigns = () => {
           Join <span style={{ color: "#D82148" }}>BugBounty</span> campaigns
         </Typography>
 
-        <Box display="flex" justifyContent="flex-end">
+        {/* <Box display="flex" justifyContent="flex-end">
           <Button
             style={{
               color: "#D82148",
@@ -93,7 +93,7 @@ const Compaigns = () => {
           >
             Create Bugbounty
           </Button>
-        </Box>
+        </Box> */}
 
         <Stack direction="row" mt={4} flexWrap="wrap">
           {/* -=-=-=======-------------==============------------------===============----===- */}
@@ -158,7 +158,7 @@ const Compaigns = () => {
                     <Link
                       style={{ textDecoration: "none" }}
                       to={{
-                        pathname: `/dashboard/bugcampaigns/praticipatebtn/:id${part.id}`,
+                        pathname: `/dashboard/bugcampaigns/praticipate/${part.id}`,
                         state: { pratbtn: part},
                       }}
                     >
@@ -181,6 +181,13 @@ const Compaigns = () => {
                         Participate
                       </Button>
                     </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={{
+                        pathname: `/dashboard/bugcampaigns/detail/${part.id}`,
+                        state: { pratbtn: part},
+                      }}
+                    >
                     <Button
                       href="/dashboard/bugcampaigns/detailbtn"
                       size="medium"
@@ -196,6 +203,7 @@ const Compaigns = () => {
                     >
                       Detail
                     </Button>
+                    </Link>
                   </div>
                 </div>
               </Box>

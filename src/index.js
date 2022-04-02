@@ -7,10 +7,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { MoralisProvider } from "react-moralis";
+// import { useMoralis, useMoralisCloudFunction } from "react-moralis";
 
 // For Moralis
 
 // console.log(process.env.REACT_APP_MORALIS_KEY,'keyyy');
+// const { Moralis, user } = useMoralis();
+
+// Moralis.start(appId, serverUrl);
 
 ReactDOM.render(
   <React.StrictMode>
