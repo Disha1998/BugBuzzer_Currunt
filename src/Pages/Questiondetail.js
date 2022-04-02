@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid, Avatar, Button, Stack } from "@mui/material";
+import IconButton from '@mui/material/IconButton';
 import ArrowUpwardTwoToneIcon from "@mui/icons-material/ArrowUpwardTwoTone";
 import ArrowDownwardTwoToneIcon from "@mui/icons-material/ArrowDownwardTwoTone";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
@@ -128,18 +129,19 @@ const Questiondetail = () => {
           }}
         >
           <Typography>Answer1</Typography>
-          <Stack direction="row" spacing={2}>
-            <Avatar style={{ background: "#D82148" }}>
-              <ArrowUpwardTwoToneIcon />
-            </Avatar>
-            <Avatar style={{ background: "#D82148" }}>
-              <ArrowDownwardTwoToneIcon />
-            </Avatar>
-            <Avatar style={{ background: "#D82148" }}>
-              {" "}
-              <ModeCommentOutlinedIcon />
-            </Avatar>
-            <Button
+          <Stack direction="row" spacing={1}>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ArrowUpwardTwoToneIcon />
+
+            </IconButton>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ArrowDownwardTwoToneIcon />
+            </IconButton>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ModeCommentOutlinedIcon />
+            </IconButton>
+    
+              <Button
               variant="outlined"
               size="small"
               style={{
@@ -148,7 +150,7 @@ const Questiondetail = () => {
                 textTransform: "capitalize",
                 border: "2px solid #D82148",
                 fontWeight: "bold",
-                marginLeft: "420px",
+                marginLeft: "448px",
               }}
               sx={{ borderRadius: 2 }}
             >
@@ -165,19 +167,20 @@ const Questiondetail = () => {
             p: 2,
           }}
         >
-          <Typography>Answer2</Typography>
-          <Stack direction="row" spacing={2}>
-            <Avatar style={{ background: "#D82148" }}>
-              <ArrowUpwardTwoToneIcon />
-            </Avatar>
-            <Avatar style={{ background: "#D82148" }}>
-              <ArrowDownwardTwoToneIcon />
-            </Avatar>
-            <Avatar style={{ background: "#D82148" }}>
-              {" "}
-              <ModeCommentOutlinedIcon />
-            </Avatar>
-            <Button
+          <Typography>Answer1</Typography>
+          <Stack direction="row" spacing={1}>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ArrowUpwardTwoToneIcon />
+
+            </IconButton>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ArrowDownwardTwoToneIcon />
+            </IconButton>
+            <IconButton style={{ background: "#D82148", color:'white'}}>
+            <ModeCommentOutlinedIcon />
+            </IconButton>
+    
+              <Button
               variant="outlined"
               size="small"
               style={{
@@ -186,7 +189,7 @@ const Questiondetail = () => {
                 textTransform: "capitalize",
                 border: "2px solid #D82148",
                 fontWeight: "bold",
-                marginLeft: "420px",
+                marginLeft: "448px",
               }}
               sx={{ borderRadius: 2 }}
             >
